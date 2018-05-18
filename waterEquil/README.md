@@ -1,7 +1,7 @@
 waterEquil
 =========
 
-You will need the [pgf community compiler](https://www.pgroup.com/products/community.htm)
+You will need the [PGI community compiler](https://www.pgroup.com/products/community.htm)
 to compile this code. Make sure to add
 `/opt/pgi/<your_os_and_architecture>/<pgi_version>/bin/`
 to your $PATH. Once done, a compiled `water.equil` is a simple `make` away!
