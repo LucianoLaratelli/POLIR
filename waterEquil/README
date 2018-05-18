@@ -1,6 +1,0 @@
-pgf90 -fast ls4equil.f90 r4.f ps_intra_polir_b.f90 -o water.equil
-rm -f temp2.out pe2.out dipole2.out tot2.out md_vel2.out md_traj2.out ke2.out
-
-DIFFERENCE BETWEEN ION and WATER CODES (r4 & ls4)
-perl -pi -e 's/i.eq.1/i.eq.9999/g' r4.f
-perl -pi -e 's/i.gt.1/i.gt.0/g' r4.f
