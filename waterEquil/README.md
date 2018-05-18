@@ -1,4 +1,5 @@
-#waterEquil
+waterEquil
+=========
 
 You will need the [pgf community compiler](https://www.pgroup.com/products/community.htm)
 to compile this code. Make sure to add
@@ -19,11 +20,13 @@ Description of the input file from Gungor:
 The file `cvec.dat` has the coordinates of the simulation box.
 `x.xyz` has the starting geometry of your system.
 
-##Known Errors
+Known Errors
+------------
 1. Running the code on a water dimer does not move the hydrogens, creating unrealistic
 torque on the oxygen atoms.
 
-##TODO
+TODO
+----
 1. Reduce known errors (above) to 0.
 2. Allow for nmol to be determined dynamically from input file instead of being set as a parameter
 3. Confirm that energy calculations are correct for the water dimer, namely:
