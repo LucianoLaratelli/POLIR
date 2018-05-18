@@ -256,26 +256,26 @@
 
         !CHANGE
         !remove step check to output traj at every step
-          !CHANGE
-          !add atom count to md output
-          !and space between atom count and output
-          write(300,'(a,3f10.4)')'384'
-          write(300,*)
-          do i=1,nmol
-          !if(i.eq.1)i_a=1
-          !if(i.gt.1)i_a=3
-          i_a=3
-          !CHANGE i_a should always be three here
+        !CHANGE
+        !add atom count to md output
+        !and space between atom count and output
+        write(300,'(a,3f10.4)')'384'
+        write(300,*)
+        do i=1,nmol
+        !if(i.eq.1)i_a=1
+        !if(i.gt.1)i_a=3
+        i_a=3
+        !CHANGE i_a should always be three here
 
-          do ia=1,i_a
-          write(400,*)vel(i,ia,1),vel(i,ia,2),vel(i,ia,3)
-          if(ia.eq.1)then
-            write(300,'(a,3f10.4)')'O',rat(i,ia,1),rat(i,ia,2),rat(i,ia,3)
-          else
-            write(300,'(a,3f10.4)')'H',rat(i,ia,1),rat(i,ia,2),rat(i,ia,3)
-          endif
-          enddo
-          enddo
+        do ia=1,i_a
+        write(400,*)vel(i,ia,1),vel(i,ia,2),vel(i,ia,3)
+        if(ia.eq.1)then
+          write(300,'(a,3f10.4)')'O',rat(i,ia,1),rat(i,ia,2),rat(i,ia,3)
+        else
+          write(300,'(a,3f10.4)')'H',rat(i,ia,1),rat(i,ia,2),rat(i,ia,3)
+        endif
+        enddo
+        enddo
         enddo
 
  98         open(unit=100,file=xyZOUT)
