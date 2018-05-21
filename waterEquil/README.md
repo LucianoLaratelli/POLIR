@@ -22,8 +22,7 @@ The file `cvec.dat` has the coordinates of the simulation box.
 
 Known Errors
 ------------
-1. Running the code on a water dimer does not move the hydrogens, creating unrealistic
-torque on the oxygen atoms.
+1. Running the code on a water dimer does not move the hydrogens on the first water molecule.
 
 TODO
 ----

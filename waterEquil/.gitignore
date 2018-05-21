@@ -8,3 +8,6 @@ tot2.out
 water.equil
 mnasa_mod.mod
 *.o
+*.swp
+pos_out123.xyz
+vel123.out

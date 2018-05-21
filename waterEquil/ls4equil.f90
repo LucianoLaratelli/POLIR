@@ -259,7 +259,7 @@
         !CHANGE
         !add atom count to md output
         !and space between atom count and output
-        write(300,'(a,3f10.4)')'384'
+        write(300,'(a,3f10.4)')'6'
         write(300,*)
         do i=1,nmol
         !if(i.eq.1)i_a=1
