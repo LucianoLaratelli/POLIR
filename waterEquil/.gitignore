@@ -15,5 +15,6 @@ pos_out123.xyz
 *.dat
 *.out
 *.txt
+!CRAPL-LICENSE.txt
 *.CORRELATED
 *.dSYM/
