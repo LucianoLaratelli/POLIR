@@ -4,13 +4,22 @@ waterEquil
 You will need the [PGI community compiler](https://www.pgroup.com/products/community.htm)
 to compile this code. Make sure to add
 `/opt/pgi/<your_os_and_architecture>/<pgi_version>/bin/`
-to your $PATH. Once done, a compiled `water.equil` is a simple `make` away!
+to your $PATH. Once done, a compiled `water.equil` is a simple `make polir` away!
+
+This directory also contains `get_TCF.cpp`, which calculates the 
+time correlation function (TCFs) for the system.
+
+Lastly, `get_ave.cpp` will calculate the average energy of the system.
+
+`make` will generate optimized binaries for both `get_TCF` and `get_ave`
 
 The file `inpEquil` is an example input for this program. 
-Some quirks:
-  * note that you will need to update the number of molecules by hand in `parameter.i` (the `nmol` line)
 
-Description of the input file from Gungor:
+Using Water.Equil
+-----------------
+`water.equil < inpEquil`
+
+Description of the input file (`inpEquil`) from Gungor:
  * 1st row: INPUT FILES---coordinates, velocities, dimensions of the box
  * 2nd row: OUTPUT FILES---final coordinates, final velocities
                         temperature, potential energy, kinetic energy, total energy
@@ -19,6 +28,22 @@ Description of the input file from Gungor:
 
 The file `cvec.dat` has the coordinates of the simulation box.
 `x.xyz` has the starting geometry of your system.
+
+Some quirks:
+  * note that you will need to update the number of molecules by hand in `parameter.i` (the `nmol` line)
+
+
+Using TCF Function
+------------------
+I apologize in advance for the way this is hacked together.
+```
+python nums.py <steps+2> > nums.txt
+paste nums.txt dipole.out > dipoles.dat
+./get_TCF dipoles.dat
+xmgrace dipoles.dat.CORRELTED #or your favorite command-line graphing util
+```
+Ten thousand steps produces a nice correlation function for a water dimer.
+
 
 Known Errors
 ------------
