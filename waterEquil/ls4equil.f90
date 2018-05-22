@@ -19,6 +19,7 @@
         open(unit=25,file=totOUT)
         open(unit=300,file=md_trajOUT)
         open(unit=400,file=md_velOUT)
+        open(unit=69, file="dipole.out")
 
 !         print*, '** INPUT PARAMETERS= '
         read*, nstep,firsttimestep,alph(1,1),c_16,c_14,c_12,c_6,fmassmg
@@ -239,6 +240,8 @@
         enddo
 
         temp1=ake/(0.5d0*float((nmol-1)*9+3)*fkb)
+
+
         !print*,utot+ake*avsno/4184.d0,temp1,utot+0.5d0*temp1*1.985877534d-3*float((nmol-1)*9+3)
         print *, "***************************************************"
         print *, "UTOT: ", utot

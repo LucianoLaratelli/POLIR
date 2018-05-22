@@ -1534,6 +1534,19 @@ c         include 'parameter2.i'
         enddo
         enddo
 
+      sumx = 0.0
+      sumy = 0.0
+      sumz = 0.0
+      do i=1,nmol
+        do ia=1,3
+          sumx = sumx + dipole(i,ia,1)
+          sumy = sumy + dipole(i,ia,2)
+          sumz = sumz + dipole(i,ia,3)
+        enddo
+      enddo
+
+      write(69,*) sumx, sumy, sumz
+
       utot=utot1-utot2   
       upair=upair1-upair2
       ucc=ucc1-ucc2
@@ -1997,6 +2010,7 @@ c          endif
             ucd=ucd+0.5d0*qat(ia,i)*potcd(i,ia)
            enddo
            enddo
+
 
 c     ucd and udc should be exactly the same (which can be checked).
 c     The first is the energy of the charges in the field of the dipoles
