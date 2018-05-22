@@ -1,3 +1,3 @@
 water_pair.xyz cvec.dat
 pos_out123.xyz vel123.out temp2.out pe2.out ke2.out tot2.out md_traj2.out md_vel2.out
-10000 0 4.d0 4.54264d+8 -1.79198d+8 2.00212d+7 -4268.25d0 35.4528d0
+10 0 4.d0 4.54264d+8 -1.79198d+8 2.00212d+7 -4268.25d0 35.4528d0

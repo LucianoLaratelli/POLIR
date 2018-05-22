@@ -1,13 +1,17 @@
-ke2.out
-ls4equil.out
-md_vel2.out
-md_traj2.out
-pe2.out
-temp2.out
-tot2.out
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
 water.equil
 mnasa_mod.mod
 *.o
 *.swp
 pos_out123.xyz
-vel123.out
+*.dat
+*.out
+*.dSYM/
