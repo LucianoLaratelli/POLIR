@@ -35,7 +35,7 @@ Some quirks:
 
 Using TCF Function
 ------------------
-I apologize in advance for the way this is hacked together.
+I apologize in advance for the way this is hacked together. (see the [License](https://github.com/LucianoLaratelli/POLIR/blob/master/waterEquil/CRAPL-LICENSE.txt))
 ```
 python nums.py <steps+2> > nums.txt
 paste nums.txt dipole.out > dipoles.dat
