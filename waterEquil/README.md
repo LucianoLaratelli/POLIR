@@ -37,10 +37,7 @@ Using TCF Function
 ------------------
 I apologize in advance for the way this is hacked together. (see the [License](https://github.com/LucianoLaratelli/POLIR/blob/master/waterEquil/CRAPL-LICENSE.txt))
 ```
-python nums.py <steps+2> > nums.txt
-paste nums.txt dipole.out > dipoles.dat
-./get_TCF dipoles.dat
-xmgrace dipoles.dat.CORRELTED #or your favorite command-line graphing util
+python process_data.py dipole.out
 ```
 Ten thousand steps produces a nice correlation function for a water dimer.
 
