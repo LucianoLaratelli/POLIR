@@ -17,7 +17,9 @@ The file `inpEquil` is an example input for this program.
 
 Using Water.Equil
 -----------------
-`water.equil < inpEquil`
+```
+water.equil < inpEquil
+```
 
 Description of the input file (`inpEquil`) from Gungor:
  * 1st row: INPUT FILES---coordinates, velocities, dimensions of the box
@@ -40,6 +42,7 @@ I apologize in advance for the way this is hacked together. (see the [License](h
 python process_data.py dipole.out
 ```
 Ten thousand steps produces a nice correlation function for a water dimer.
+This program will also output a plot of the Fourier Transform of the TCF--hope you find it handy!
 
 
 Known Errors

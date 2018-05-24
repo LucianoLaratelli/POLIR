@@ -9,9 +9,11 @@ int main(int argc, char ** argv)
     std::cout << "Takes exactly one file name as input" << std::endl;
     exit(EXIT_FAILURE);
   }
+
   std::ifstream matrix(argv[1]);
   std::vector<std::vector<double>> values;
   std::vector<double> row(4);
+
   while(matrix >> row[0] >> row[1] >> row[2] >> row[3])
   {
     values.push_back(row);
@@ -19,6 +21,9 @@ int main(int argc, char ** argv)
 
   int t = values.size();
 
+  //why an array? because doing the i-j business below
+  //is a pain in the ass with vectors
+  //(see the RHS of the assignments below)
   double * c = (double *)calloc(t, sizeof(double));
 
   for(int i = 0; i < t; i++)
@@ -35,7 +40,7 @@ int main(int argc, char ** argv)
   std::ofstream out(output_file_name);
   for(int i = 0; i < t; i++)
   {
-    out << " " <<  c[i]/(t-i) << std::endl;
+    out << c[i]/(t-i) << std::endl;
   }
 
   return 0;
