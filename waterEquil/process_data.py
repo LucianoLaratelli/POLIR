@@ -1,6 +1,7 @@
 import sys
 from subprocess import call
 import numpy as np
+import matplotlib.pyplot as plt
 
 def main():
     if(sys.argv[1] == None):
@@ -25,7 +26,13 @@ def main():
     with open(correlated_file, 'r') as corr:
         correlated = corr.readlines()
 
-    print np.fft.fft(correlated)
+    f = np.fft.fft(correlated)
+
+    x= np.arange(0,len(f))
+
+    plt.plot(x, f)
+
+    plt.show()
 
 
 if __name__ == "__main__":
