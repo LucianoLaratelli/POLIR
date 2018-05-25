@@ -35,7 +35,7 @@ def main():
     frequency_of_fourier = np.fft.fftfreq(len(fourier_of_correlated))
 
     plt.plot(frequency_of_fourier, fourier_of_correlated)
-
+    plt.savefig('FFT.png')
     plt.show()
 
 

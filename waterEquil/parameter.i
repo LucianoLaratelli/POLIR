@@ -1,5 +1,5 @@
        integer iflag,ipdc,nmol,iloop,iand
-      parameter(nmol=128)
+      parameter(nmol=2)
           real*8 acc1(nmol,3,3),acc(nmol,3,3),fmass(3)
            real*8 sumdx,sumdy,sumdz
          real*8  potcc(nmol,3),potcd(nmol,3),force(nmol,3,3)
