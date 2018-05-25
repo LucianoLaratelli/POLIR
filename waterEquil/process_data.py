@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
-    if(sys.argv[1] == None):
+    if len(sys.argv) != 2:
         print "Needs exactly one file name as input."
         sys.exit(1)
     with open(sys.argv[1], 'r') as program:
@@ -12,16 +12,16 @@ def main():
 
     col_num = len(data[0].split())
 
-    #POLIR code makes it a pain to output step numbers, so we 
+    #POLIR code makes it a pain to output step numbers, so we
     #prepend them if necessary
     #the magic number `4` is the result of having the dipoles for each
     #of the x, y, and z directions, which make for three columns
     #the step number is the fourth
-    if(col_num != 4):
+    if col_num != 4:
         with open(sys.argv[1], 'w') as program:
             for (number, line) in enumerate(data):
                 program.write('%d  %s' % (number + 1, line))
-    
+
 
     #heavy lifting handled by C here
     call(["./get_TCF", sys.argv[1]])
@@ -31,11 +31,10 @@ def main():
     with open(correlated_file, 'r') as corr:
         correlated = corr.readlines()
 
-    f = np.fft.fft(correlated)
+    fourier_of_correlated = np.fft.fft(correlated)
+    frequency_of_fourier = np.fft.fftfreq(len(fourier_of_correlated))
 
-    x= np.arange(0,len(f))
-
-    plt.plot(x, f)
+    plt.plot(frequency_of_fourier, fourier_of_correlated)
 
     plt.show()
 
