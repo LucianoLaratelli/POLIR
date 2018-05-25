@@ -1060,7 +1060,7 @@ c      end
      :    +12.d0*c_12*RR14
      $           +6.d0*c_6*RR8)
             qpe=(c_16*RR16+c_14*RR14+c_12*RR12+c_6*RR6)
-           print*,"QPE[LJ1]: ", qpe
+           !print*,qpe
          end
 
       subroutine lj(rsqi,rr,qpe,gfac)
@@ -1078,7 +1078,7 @@ c      end
             GFAC=(16.d0*c16*RR18+14.d0*c14*RR16+12.d0*c12*RR14
      $           +6.d0*c6*RR8)
             qpe=(c16*RR16+c14*RR14+c12*RR12+c6*RR6)
-           print*,"QPE[LJ]: ", qpe
+          ! print*,qpe
          end
 
       
@@ -1534,19 +1534,6 @@ c         include 'parameter2.i'
         enddo
         enddo
 
-      sumx = 0.0
-      sumy = 0.0
-      sumz = 0.0
-      do i=1,nmol
-        do ia=1,3
-          sumx = sumx + dipole(i,ia,1)
-          sumy = sumy + dipole(i,ia,2)
-          sumz = sumz + dipole(i,ia,3)
-        enddo
-      enddo
-
-      write(69,*) sumx, sumy, sumz
-
       utot=utot1-utot2   
       upair=upair1-upair2
       ucc=ucc1-ucc2
@@ -1560,8 +1547,8 @@ c         include 'parameter2.i'
 c     utot=utot-float(nmolw)*2.94074012287069/pefac
 c        print*,utot!,force(128,1,3)
 c        stop
-        !print*,'utot,ucc,ucd,udd,uspring,upair'!,force(128,1,3)
-        !print*,utot,ucc,ucd,udd,uspring,upair!,force(128,1,3)
+        print*,'utot,ucc,ucd,udd,uspring,upair'!,force(128,1,3)
+        print*,utot,ucc,ucd,udd,uspring,upair!,force(128,1,3)
       end
 
 
@@ -2010,7 +1997,6 @@ c          endif
             ucd=ucd+0.5d0*qat(ia,i)*potcd(i,ia)
            enddo
            enddo
-
 
 c     ucd and udc should be exactly the same (which can be checked).
 c     The first is the energy of the charges in the field of the dipoles
