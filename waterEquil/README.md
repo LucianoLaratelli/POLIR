@@ -47,7 +47,7 @@ This program will also output a plot of the Fourier Transform of the TCF--hope y
 
 Known Errors
 ------------
-1. Running the code on a water dimer does not move the hydrogens on the first water molecule.
+1. Something is very, very wrong with the water dimer.
 
 TODO
 ----
