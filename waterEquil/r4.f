@@ -963,6 +963,7 @@ c     $       (efdc(i,ia,1))!*debfac
 c         stop         
 c     dipmol=sqrt(dipole(isp,1)**2+dipole(isp,2)**2+dipole(isp,3)**2)
 c      write(884,*) isp,dipole(isp,1)*debfac
+          write(85, *) dipole(i,i_a,1), dipole(i,i_a,2), dipole(i,i_a,3)
         enddo      
         enddo      
       deltadip=dsqrt(deltadip/dfloat(nmol))*debfac
@@ -1060,7 +1061,7 @@ c      end
      :    +12.d0*c_12*RR14
      $           +6.d0*c_6*RR8)
             qpe=(c_16*RR16+c_14*RR14+c_12*RR12+c_6*RR6)
-           !print*,qpe
+           print*,"QPE[LJ1]: ", qpe
          end
 
       subroutine lj(rsqi,rr,qpe,gfac)
@@ -1078,7 +1079,7 @@ c      end
             GFAC=(16.d0*c16*RR18+14.d0*c14*RR16+12.d0*c12*RR14
      $           +6.d0*c6*RR8)
             qpe=(c16*RR16+c14*RR14+c12*RR12+c6*RR6)
-          ! print*,qpe
+           print*,"QPE[LJ]: ", qpe
          end
 
       
@@ -1534,6 +1535,7 @@ c         include 'parameter2.i'
         enddo
         enddo
 
+
       utot=utot1-utot2   
       upair=upair1-upair2
       ucc=ucc1-ucc2
@@ -1547,8 +1549,8 @@ c         include 'parameter2.i'
 c     utot=utot-float(nmolw)*2.94074012287069/pefac
 c        print*,utot!,force(128,1,3)
 c        stop
-        print*,'utot,ucc,ucd,udd,uspring,upair'!,force(128,1,3)
-        print*,utot,ucc,ucd,udd,uspring,upair!,force(128,1,3)
+        !print*,'utot,ucc,ucd,udd,uspring,upair'!,force(128,1,3)
+        !print*,utot,ucc,ucd,udd,uspring,upair!,force(128,1,3)
       end
 
 
@@ -1998,6 +2000,7 @@ c          endif
            enddo
            enddo
 
+
 c     ucd and udc should be exactly the same (which can be checked).
 c     The first is the energy of the charges in the field of the dipoles
 c     and the second is the energy of the dipoles in the field of the
@@ -2061,4 +2064,5 @@ c     $                    *(dpdr(i,jja,iia,idim2,idim))
       return
       end
          
+
 

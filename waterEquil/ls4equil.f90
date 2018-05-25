@@ -185,6 +185,18 @@
 !            stop
             !BEGIN MAIN LOOP
             do n=firsttimestep,nstep
+            sumx = 0.0
+            sumy = 0.0
+            sumz = 0.0
+            do i=1,nmol
+              do ia=1,3
+                sumx = sumx + dipole(i,ia,1)
+                sumy = sumy + dipole(i,ia,2)
+                sumz = sumz + dipole(i,ia,3)
+              enddo
+            enddo
+
+      write(69,*) sumx, sumy, sumz
                print*,n!,pott
 !               if(n.eq.8)goto 98
                ake=0.d0 
