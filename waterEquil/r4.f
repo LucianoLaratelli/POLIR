@@ -963,7 +963,6 @@ c     $       (efdc(i,ia,1))!*debfac
 c         stop         
 c     dipmol=sqrt(dipole(isp,1)**2+dipole(isp,2)**2+dipole(isp,3)**2)
 c      write(884,*) isp,dipole(isp,1)*debfac
-          write(85, *) dipole(i,i_a,1), dipole(i,i_a,2), dipole(i,i_a,3)
         enddo      
         enddo      
       deltadip=dsqrt(deltadip/dfloat(nmol))*debfac
