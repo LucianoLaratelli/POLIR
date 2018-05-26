@@ -1,5 +1,5 @@
-waterEquil
-=========
+Compiling Water.Equil
+---------------------
 
 You will need the [PGI community compiler](https://www.pgroup.com/products/community.htm)
 to compile this code. Make sure to add
@@ -48,6 +48,7 @@ This program will also output a plot of the Fourier Transform of the TCF--hope y
 Known Errors
 ------------
 1. Something is very, very wrong with the water dimer.
+2. When printing atomic dipoles, the first water molecule's atom's dipoles are reported as zero. 
 
 TODO
 ----
