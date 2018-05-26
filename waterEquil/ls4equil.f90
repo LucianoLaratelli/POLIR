@@ -193,6 +193,7 @@
                 sumx = sumx + dipole(i,ia,1)
                 sumy = sumy + dipole(i,ia,2)
                 sumz = sumz + dipole(i,ia,3)
+                write(85, *) dipole(i,i_a,1), dipole(i,i_a,2), dipole(i,i_a,3)
               enddo
             enddo
 
