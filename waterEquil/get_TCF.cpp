@@ -43,5 +43,7 @@ int main(int argc, char ** argv)
     out << c[i]/(t-i) << std::endl;
   }
 
+  free(c);
+
   return 0;
 }
