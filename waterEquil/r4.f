@@ -9,7 +9,7 @@
        include 'parameter.i'
 c       include 'parameter2.i'
 
-       real*8 r1(3,3),bond(nmol,3,6),dr1(3,3)                  
+       real*8 r1(3,3),bond(nmol,3,4),dr1(3,3)                  
         debfac=echarge*1d-10/3.33d-30
 
          efext(1)=0.d0
@@ -34,7 +34,7 @@ c       include 'parameter2.i'
 
 c     sum over all intra interactions which don't involve m-sites
          if(iand.eq.1.and.iflag.eq.1)then            
-      do i=2,nmol
+      do i=1,nmol
 
          do ia=1,3
                   do  idim=1,3
@@ -159,7 +159,8 @@ c     sum over molecules
           dipole_p(1,3,1)=0.d0
           dipole_p(1,3,2)=0.d0
           dipole_p(1,3,3)=0.d0
-         do i=2,nmol
+          !CHANGE i=2 -> i=1
+         do i=1,nmol
 
              imol=i
             r1dotr2 = 0.d0
@@ -385,7 +386,8 @@ c     two sites.
          
 c     sum over all intra interactions
 
-      do i=2,nmol
+      !CHANGE i from 2 to 1 
+      do i=1,nmol
            imol=i
          do iia=1,2
              j=i
@@ -451,8 +453,9 @@ c     sum over all intra interactions
       if(iand.eq.1)then
       do i=1,nmol-1
            imol=i
-           if(i.eq.1)i_a=1
-           if(i.gt.1)i_a=3
+           !if(i.eq.1)i_a=1
+           !if(i.gt.1)i_a=3
+           i_a=3
          do iia=1,i_a
        do j=i+1,nmol
            if(j.eq.9999)j_a=1
@@ -609,8 +612,9 @@ c     this subroutine calculates the Ewald 'self correction' term.
 
       sfac=fac(4)*sqpii*ewfac
       do  i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
+          i_a=3
          do  ia=1,i_a
             isp=isp+1
          potcc(i,ia)=potcc(i,ia)-2.d0*qat(ia,i)*sfac
@@ -730,8 +734,9 @@ c     sum over sites
             rkdskrsz=0.d0
 
                do  i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
+          i_a=3
 
                   do  ia=1,i_a
       thet=2.d0*pi*(xm(1)*rf(i,ia,1)+xm(2)*rf(i,ia,2)+xm(3)*rf(i,ia,3))
@@ -774,8 +779,9 @@ c     increment coulombic energy
             
 c     sum over sites to increment forces/fields etc.
                do i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
+          i_a=3
 
                 do ia=1,i_a            
             
@@ -833,8 +839,9 @@ c     reciprocal space cut-off endif
 c     if(ifrac.eq.0) converts fractional to cartesian coordinates
 c     if(ifrac.eq.1) converts cartesian to fractional coordinates
            do i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
+          i_a=3
 
              do ia=1,i_a
               do j=1,3  
@@ -992,8 +999,9 @@ c       stop
       dpdr=0.0
          isp=0
          do i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
+          i_a=3
 
                do ia=1,i_a
                potcc(i,ia)=0.d0
@@ -1433,7 +1441,7 @@ c         include 'parameter2.i'
            sumdx=debfac*dipole(1,1,1)
            sumdy=debfac*dipole(1,1,2)
            sumdz=debfac*dipole(1,1,3)
-         do i=2,nmol
+         do i=1,nmol
           do iat=1,3
           do idim=1,3
           xd=rat(i,iat,idim)-rat(i,1,idim)
@@ -1568,8 +1576,9 @@ c        stop
          endif
            isp=0
       do i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
+          i_a = 3
 
           do ia=1,i_a
             isp=isp+1
@@ -1623,8 +1632,9 @@ c        stop
           enddo   
             isp=0
             do i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
+          i_a = 3
 
                do ia=1,i_a
                   isp=isp+1
@@ -1976,8 +1986,9 @@ c          endif
             
       isp=0
       do i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
+          i_a=3
 
             do ia=1,i_a
             isp=isp+1
@@ -2010,8 +2021,9 @@ c     charges.  They sum to give the total charge-dipole energy.
 
       ucd=udc+ucd
       do i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
+          i_a=3
 
          do ia=1,i_a
               if(ia.eq.1)iia=3
