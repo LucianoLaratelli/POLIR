@@ -2,7 +2,7 @@ CC = g++
 
 SRCS = $(wildcard *.cpp)
 
-CFLAGS = -Wall -Wextra -Werror -ggdb3 -O2 -funroll-loops -std=c++11
+CFLAGS = -Wall -Wextra -Werror -g -O2 -funroll-loops -std=c++11
 
 PROGS = $(patsubst %.cpp,%,$(SRCS))
 
