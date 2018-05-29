@@ -21,6 +21,33 @@ int main(int argc, char ** argv)
 
   int t = values.size();
 
+  double sumx=0.0;
+  double sumy=0.0;
+  double sumz=0.0;
+
+  for(int i = 0; i < t; i++)
+  {
+    sumx += values.at(i).at(1);
+    sumy += values.at(i).at(2);
+    sumz += values.at(i).at(3);
+  }
+
+  double ave_x = sumx / t;
+  double ave_y = sumy / t;
+  double ave_z = sumz / t;
+
+  //subtract off the average from each total
+  //this reduces noise in the final output
+  for(int i = 0; i < t; i++)
+  {
+    values.at(i).at(1) -= ave_x;
+    values.at(i).at(2) -= ave_y;
+    values.at(i).at(3) -= ave_z;
+  }
+
+  //window is the offset used in TCF.
+  double window = 20000;
+
   //why an array? because doing the i-j business below
   //is a pain in the ass with vectors
   //(see the RHS of the assignments below)
@@ -28,11 +55,13 @@ int main(int argc, char ** argv)
 
   for(int i = 0; i < t; i++)
   {
-    for(int j = 0; j < i; j++)
+    if(i % 1000 == 0) { std::cout << "Step " << i << " reached." << std::endl; }
+    for(int j = i; j < (i + window); j++)
     {
-      c[i-j] += (values.at(i).at(1) * values.at(j).at(1));
-      c[i-j] += (values.at(i).at(2) * values.at(j).at(2));
-      c[i-j] += (values.at(i).at(3) * values.at(j).at(3));
+      if((i + window) > t) { break; }
+      c[j-i] += (values.at(i).at(1) * values.at(j).at(1));
+      c[j-i] += (values.at(i).at(2) * values.at(j).at(2));
+      c[j-i] += (values.at(i).at(3) * values.at(j).at(3));
     }
   }
 
