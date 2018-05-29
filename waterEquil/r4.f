@@ -58,7 +58,8 @@ c               eng1=eng1!*kcal_j
 c     sum over molecules to determine intramolecular potential energy
 c     and determine charges from Partridge dipole surface
  
-      do i=2,nmol
+           !CHANGE i from 1 to 2
+      do i=1,nmol
          r1x=rat(i,2,1)-rat(i,1,1)
          r1x=r1x-anint(r1x/cvec(1,1))*cvec(1,1) 
          r1y=rat(i,2,2)-rat(i,1,2)
@@ -928,9 +929,10 @@ c     the cut-off is the smallest of the 3 radii
       deltadip=0.d0
       
       do  i=1,nmol
-          if(i.eq.1)i_a=1
-          if(i.gt.1)i_a=3
+          !if(i.eq.1)i_a=1
+          !if(i.gt.1)i_a=3
 
+          i_a = 3
           do ia=1,i_a
                oldipx=dipole(i,ia,1)
                oldipy=dipole(i,ia,2)
@@ -1392,7 +1394,8 @@ c         include 'parameter2.i'
         debfac=echarge*1d-10/3.33d-30
 
               !alph(1,1)=0.1d0
-            do i=2,nmol
+              !CHANGE i from 2 to 1
+            do i=1,nmol
             alph(i,1)=1.365d0
             alph(i,2)=0.471d0
             alph(i,3)=0.471d0
