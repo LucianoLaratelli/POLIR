@@ -23,8 +23,10 @@ def main():
                 program.write('%d  %s' % (number + 1, line))
 
 
-    #heavy lifting handled by C here
+    #heavy lifting handled by C++ here
+    print "Calling TCF function..."
     call(["./get_TCF", sys.argv[1]])
+    print "TCF done, let's smash that FFT button"
 
     correlated_file = sys.argv[1] + ".CORRELATED"
 
@@ -33,6 +35,7 @@ def main():
 
     fourier_of_correlated = np.fft.fft(correlated)
     frequency_of_fourier = np.fft.fftfreq(len(fourier_of_correlated))
+    print "FFT done, making plots now..."
 
     plt.plot(frequency_of_fourier, fourier_of_correlated)
     plt.savefig('FFT.png')
