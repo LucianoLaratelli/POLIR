@@ -1,0 +1,12 @@
+x.xyz cvec.dat
+pos_out123.xyz vel123.out temp.out pe.out ke.out tot.out md_traj.xyz md_vel.out
+100000 0 4.d0 4.54264d+8 -1.79198d+8 2.00212d+7 -4268.25d0 35.4528d0
+
+
+1st row: INPUT FILES---coordinates, velocities, dimensions of the box
+2nd row: OUTPUT FILES---final coordinates, final velocities
+                        temperature, potential energy, kinetic energy, total energy
+                        dipoles, md_coordinates, md_velocities
+3rd row: PARAMETERS---number of steps, first time step, polarizability, c_16, c_14, c_12, c_6, mass
+
+I have added firsttimestep to easily merge output files.
