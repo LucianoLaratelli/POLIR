@@ -1,0 +1,24 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+water.equil
+mnasa_mod.mod
+*.o
+*.swp
+pos_out123.xyz
+md_traj.xyz
+*.dat
+*.out
+*.txt
+!CRAPL-LICENSE.txt
+*.CORRELATED
+*.dSYM/
+*.png
+run.bash
+compile.bash
