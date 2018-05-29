@@ -1,0 +1,3 @@
+pgf90 -fast ls4equil.f90 r4.f ps_intra_polir_b.f90 -o water.equil
+rm -f temp2.out pe2.out dipole2.out tot2.out md_vel2.out md_traj2.out ke2.out
+
