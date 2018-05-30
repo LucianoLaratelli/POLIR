@@ -34,7 +34,8 @@ def main():
         correlated = corr.readlines()
 
     fourier_of_correlated = np.fft.fft(correlated)
-    frequency_of_fourier = np.fft.fftfreq(len(fourier_of_correlated))
+    frequency_of_fourier = np.fft.fftfreq(len(fourier_of_correlated), 1)
+
     print "FFT done, making plots now..."
 
     plt.plot(frequency_of_fourier, fourier_of_correlated)
