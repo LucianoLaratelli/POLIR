@@ -24,3 +24,7 @@ md_traj.xyz -> XYZ trajectory file for full simulation
 
 md_vel.out -> velocity trajectory
 
+
+## Issues
+
+[ ] First residue is wrong, all others fine.
