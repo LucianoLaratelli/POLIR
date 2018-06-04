@@ -3,6 +3,7 @@
 
 # Unignore all with extensions
 !*.*
+!inpEquil
 
 # Unignore all dirs
 !*/
@@ -16,7 +17,6 @@ md_traj.xyz
 *.dat
 *.out
 *.txt
-!CRAPL-LICENSE.txt
 *.CORRELATED
 *.dSYM/
 *.png
